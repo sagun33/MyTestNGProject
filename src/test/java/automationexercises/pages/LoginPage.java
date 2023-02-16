@@ -1,6 +1,6 @@
-package maypracticetestng.pages;
+package automationexercises.pages;
 
-import maypracticetestng.utility.Driver;
+import automationexercises.utility.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
