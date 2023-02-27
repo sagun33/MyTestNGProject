@@ -1,29 +1,15 @@
-package maypracticetestng.test;
+package automationexercises.test;
 
-import maypracticetestng.pages.HomePage;
-import maypracticetestng.pages.LoginPage;
-import maypracticetestng.pages.SignUpPage;
-import maypracticetestng.utility.ConfigReader;
-import maypracticetestng.utility.Driver;
-import maypracticetestng.utility.ExcelUtils;
-import maypracticetestng.utility.ReusableMethods;
+import automationexercises.pages.HomePage;
+import automationexercises.pages.LoginPage;
+import automationexercises.pages.SignUpPage;
+import automationexercises.utility.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class RegisterUserTest2 {
-    @DataProvider
-    public Object[][] kullaniciBilgileri() {
 
-
-        String path="./src/test/java/resources/dataMyTest1.xlsx";
-        String sheetName ="Sayfa1";
-        ExcelUtils excelUtils = new ExcelUtils(path,sheetName);
-        Object[][] bilgiler =excelUtils.getDataArrayWithoutFirstRow();
-
-        return bilgiler;
-
-        };
 
 
 
@@ -33,7 +19,7 @@ public class RegisterUserTest2 {
     SignUpPage signUpPage;
 
 
-    @Test(dataProvider="kullaniciBilgileri")
+    @Test(dataProvider="kullaniciBilgileri",dataProviderClass = DataProviderUtils.class)
     public void test1(String name,String email,String password,String firstname,String lastname,String company)
     {
         Driver.getDriver().get(ConfigReader.getProperty("url"));

@@ -1,4 +1,4 @@
-package maypracticetestng.utility;
+package automationexercises.utility;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ public class Driver {
     //    getDriver() is used to instantiate the driver object
     public static WebDriver getDriver(){
         if (driver==null){
-            switch (maypracticetestng.utility.ConfigReader.getProperty("browser")) {
+            switch (automationexercises.utility.ConfigReader.getProperty("browser")) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();

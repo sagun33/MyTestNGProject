@@ -1,18 +1,15 @@
-package maypracticetestng.test;
+package automationexercises.test;
 
+import automationexercises.pages.HomePage;
+import automationexercises.pages.LoginPage;
+import automationexercises.pages.SignUpPage;
+import automationexercises.utility.*;
 import com.github.javafaker.Faker;
-import maypracticetestng.pages.HomePage;
-import maypracticetestng.pages.LoginPage;
-import maypracticetestng.pages.SignUpPage;
-import maypracticetestng.utility.*;
-import org.apache.commons.logging.Log;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,25 +23,22 @@ public class RegisterUser {
 
     ExcelUtils excelUtils;
     List<Map<String, String>> excelDatalari;
+    Faker faker=new Faker();
 
 
 
 
     @Test
-    public void customerLogin() throws IOException {
+    public void register() throws IOException {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
         SignUpPage signUpPage = new SignUpPage();
 
-        String path = "./src/test/resources/dataMyTest1.xlsx";
+        String path = "./src/test/java/resources/dataMyTest1.xlsx";
         String sayfa = "Sayfa1";
 
         excelUtils = new ExcelUtils(path, sayfa);
         excelDatalari = excelUtils.getDataList();
-
-
-
-
 
 
 
@@ -77,13 +71,13 @@ public class RegisterUser {
             assert signUpPage.enterAccountInformation.isDisplayed();
 
             // 9. Fill details: Title, Name, Email, Password, Date of birth
-            signUpPage.password.sendKeys(data.get("password2"));
+            signUpPage.password.sendKeys(data.get("password"));
             ReusableMethods.waitFor(3);
 
 
 
             //        11. Select checkbox 'Receive special offers from our partners!'
-            signUpPage.newsLetter2.click();
+            signUpPage.newsLetter1.sendKeys(Keys.ENTER);
 
             //        12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
             Select days =new Select(signUpPage.days);
@@ -108,6 +102,7 @@ public class RegisterUser {
             signUpPage.city.sendKeys(data.get("city"));
             signUpPage.zipcode.sendKeys(data.get("zipcode"));
             ReusableMethods.waitFor(3);
+            signUpPage.mobilnumber.sendKeys(data.get("telefon"));
 
 
 //        13. Click 'Create Account button'
@@ -131,7 +126,7 @@ public class RegisterUser {
 
             }
 
-//        Driver.closeDriver();
+        Driver.closeDriver();
 
         }
 

@@ -1,4 +1,4 @@
-package maypracticetestng.utility;
+package automationexercises.utility;
 
 
 import com.aventstack.extentreports.ExtentReports;

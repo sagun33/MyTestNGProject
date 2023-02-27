@@ -10,14 +10,13 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(),this);
 
     }
-    @FindBy(xpath ="//*[@src='/static/images/home/logo.png']")
-    public WebElement visibleHompage;
+    @FindBy(xpath = "//*[@src='/static/images/home/logo.png']")
+    public WebElement homePageTitle;
+
 
     @FindBy(xpath = "//*[@href='/login']")
     public WebElement signUp;
 
-    @FindBy(xpath = "//*[@src='/static/images/home/logo.png']")
-    public WebElement homePageTitle;
 
 
 
